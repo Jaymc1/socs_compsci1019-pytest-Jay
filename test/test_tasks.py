@@ -31,8 +31,18 @@ def test_create_csv_reader_invalid_path():
 
 
 # Sub-task 3
+@pytest.mark.parametrize(
+    "hand, expected_score",
+    [
+        (["H7", "D8"], 15),          # Standard numeric hand
+        (["HJ", "SQ"], 20),          # Face card hand
+        (["HA", "D9"], 20),          # Soft Ace (Ace = 11)
+        (["HA", "HJ", "D5"], 16),    # Hard Ace adjustment (Ace = 1)
+        (["H10", "D8", "S5"], 0),    # Bust hand
+    ]
+)
 def test_score_hand_combinations(hand, expected_score):
-    pass
+    assert score_hand(hand) == expected_score
 
 # Sub-task 4
 def test_display_player_console_output(capsys):
