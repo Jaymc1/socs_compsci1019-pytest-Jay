@@ -8,7 +8,18 @@ from card_game.LoadCSV import create_csv_reader
 
 # Sub-task 1
 def test_calculate_bust_probability():
-    pass
+    hand = ["H10", "D6"]  # Total = 16
+    remaining_deck = [
+        "H2", "H3", "H4", "H5",
+        "H6", "H7", "H8", "H9",
+        "H10", "HJ", "HQ", "HK"
+    ]
+
+    expected_probability = 8 / 12
+
+    result = calculate_bust_probability(hand, remaining_deck)
+
+    assert result == expected_probability
 
 
 # Sub-task 2
@@ -17,8 +28,8 @@ def test_create_csv_reader_invalid_path():
 
 
 # Sub-task 3
-def test_score_hand_combinations(hand, expected_score):
-    pass
+#def test_score_hand_combinations(hand, expected_score):
+    #pass
 
 # Sub-task 4
 def test_display_player_console_output(capsys):
