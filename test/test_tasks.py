@@ -24,12 +24,15 @@ def test_calculate_bust_probability():
 
 # Sub-task 2
 def test_create_csv_reader_invalid_path():
-    pass
+    with pytest.raises(IOError) as exc_info:
+        create_csv_reader("non_existent_config.csv")
+
+    assert isinstance(exc_info.value, IOError)
 
 
 # Sub-task 3
-#def test_score_hand_combinations(hand, expected_score):
-    #pass
+def test_score_hand_combinations(hand, expected_score):
+    pass
 
 # Sub-task 4
 def test_display_player_console_output(capsys):
